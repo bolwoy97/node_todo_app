@@ -29,6 +29,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(require('./components/errorHandler'));
+
 app.use(session({
   secret: 'hf834u934uhgh',
   resave: true,
@@ -44,7 +46,6 @@ app.use(todoRoutes)
 app.use(sessionsRoutes)
 
 app.use(require('./controllers'));
-
 
 async function start() {
   try {
