@@ -1,0 +1,11 @@
+mongo db
+username: nma_user
+password: bU63zYj2RvtbZju
+connection string: 
+mongodb+srv://nma_user:<password>@cluster0.szpx7.mongodb.net/<dbname>?retryWrites=true&w=majority
+mongodb+srv://nma_user:bU63zYj2RvtbZju@cluster0.szpx7.mongodb.net/todos
+mongodb://localhost:27017/todos
+
+
+npm run dev
+http://localhost:3000/
