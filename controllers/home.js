@@ -6,7 +6,7 @@ app.get('/home',(req,res,next)=>{
 
 app.get('/test',(req,res,next)=>{
     //Создадим новый handler который сидит по пути `/`
-    res.send('test1');
+    res.send('test22');
     // Отправим рендер образа под именем index
 });
 
