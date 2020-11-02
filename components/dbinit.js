@@ -24,7 +24,8 @@ mongoose.connection.on('connected',()=>
 
 connect = async function () {
     await mongoose.connect(
-      'mongodb://localhost:27017/todos',
+      //'mongodb://localhost:27017/todos',
+      'mongodb+srv://nma_user:bU63zYj2RvtbZju@cluster0.szpx7.mongodb.net/todos',
       {
         useNewUrlParser: true,
         useFindAndModify: false
