@@ -1,4 +1,4 @@
 var app = require('express')();
 
-app.use(require('./home'));
+app.use('/home',require('./home'));
 module.exports = app;
