@@ -8,7 +8,7 @@
     "dev": "nodemon index",
 
     "comitgit": "git add . && git commit -m \"another commit\" && git push -u origin main ",
-    "heroku_comit": "git add . & git commit -m 'another commit' & git push heroku HEAD:master "
+    "heroku_comit": "git add . & git commit -m \"another commit\" & git push heroku HEAD:master "
 
 
   },

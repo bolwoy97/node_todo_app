@@ -41,7 +41,7 @@ app.use(session({
 
 app.use(require('./controllers'));
 
-async function start() { //test
+async function start() { 
   try {
     await dbinit.connect()
     app.listen(PORT, () => {
