@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npm i & node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+
+    "git_comit": "git add . & git commit -m 'another commit' & git push -u origin main ",
+    "heroku_comit": "git add . & git commit -m 'another commit' & git push heroku HEAD:master "
+
+
   },
   "keywords": [],
   "author": "",

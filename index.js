@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
@@ -32,10 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(require('./components/errorHandler'));
 
 app.use(session({
-  secret: 'hf834u934uhgh',
+  secret: process.env.SESSION_SECRET,
   resave: true,
   /*name: 'nma_session',
-  /store: sessionStore, // connect-mongo session store
   proxy: true,*/
   saveUninitialized: true,
   store: new MongoStore({ mongooseConnection: mongoose.connection })

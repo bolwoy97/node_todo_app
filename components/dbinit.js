@@ -1,5 +1,5 @@
+
 var mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
 mongoose.Promise = require('bluebird');
 
 mongoose.connection.on('error',(err)=>
