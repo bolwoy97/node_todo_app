@@ -48,4 +48,4 @@ router.post('/delete', async (req, res) => {
   res.redirect('/')
 })
 
-module.exports = router
+module.exports = router;

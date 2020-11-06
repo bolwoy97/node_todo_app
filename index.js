@@ -4,9 +4,6 @@ const mongoose = require('mongoose')
 const path = require('path')
 const exphbs = require('express-handlebars')
 
-const todoRoutes = require('./routes/todos')
-const sessionsRoutes = require('./routes/sessions')
-
 const dbinit = require('./components/dbinit'); 
 
 const session = require('express-session')
@@ -33,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(require('./components/errorHandler'));
 
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET, 
   resave: true,
   /*name: 'nma_session',
   proxy: true,*/
@@ -42,16 +39,13 @@ app.use(session({
 }));
 
 
-app.use(todoRoutes)
-app.use(sessionsRoutes)
-
 app.use(require('./controllers'));
 
-async function start() {
+async function start() { //test
   try {
     await dbinit.connect()
     app.listen(PORT, () => {
-      console.log('Server has been started...')
+      console.log(`Server started on  http://localhost:${PORT} ...`)
     })
   } catch (e) {
     console.log('Server start Error: '+e)
