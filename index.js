@@ -44,13 +44,17 @@ app.use(session({
 
 app.use(require('./controllers'));
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 if(process.env.NODE_ENV === 'production'){
-  console.log('production')
   app.use(express.static(path.join(__dirname, 'vue_public')))
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/vue_public/index.html'));
+  
+  app.use('/front',require('./controllers/front'));
 }else{
-  app.use(express.static(path.join(__dirname, 'public')))
+  app.use(require('./controllers/front'));
 }
+
 const PORT = process.env.PORT || 3000
 
 async function start() { 
