@@ -45,10 +45,11 @@ app.use(session({
 app.use(require('./controllers'));
 
 if(process.env.NODE_ENV === 'production'){
-  app.use(express.static(path.join(__dirname, 'public')))
+  console.log('production')
+  app.use(express.static(path.join(__dirname, 'vue_public')))
   app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
 }else{
-  app.use(express.static(path.join(__dirname, 'vue_public')))
+  app.use(express.static(path.join(__dirname, 'public')))
 }
 const PORT = process.env.PORT || 3000
 
