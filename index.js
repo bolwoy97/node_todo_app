@@ -4,13 +4,14 @@ const mongoose = require('mongoose')
 const path = require('path')
 const exphbs = require('express-handlebars')
 
+const cors = require('cors');
+
 const dbinit = require('./components/dbinit'); 
 
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session); // Хранилище сессий в монгодб
 const bodyParser = require('body-parser')
 
-const PORT = process.env.PORT || 3000
 
 const app = express()
 const hbs = exphbs.create({
@@ -25,9 +26,11 @@ app.set('views', 'views')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 //app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(cors());
+
 
 app.use(require('./components/errorHandler'));
+
 
 app.use(session({
   secret: process.env.SESSION_SECRET, 
@@ -40,6 +43,14 @@ app.use(session({
 
 
 app.use(require('./controllers'));
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, 'public')))
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+}else{
+  app.use(express.static(path.join(__dirname, 'vue_public')))
+}
+const PORT = process.env.PORT || 3000
 
 async function start() { 
   try {
