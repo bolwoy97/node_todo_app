@@ -12,9 +12,7 @@ router.get('/',(req,res,next)=>{
 });
 
 router.get('/test',(req,res,next)=>{
-    //Создадим новый handler который сидит по пути `/`
     res.send('test22');
-    // Отправим рендер образа под именем index
 });
 
 router.get('/users/:userId/books/:bookId', function (req, res) {
